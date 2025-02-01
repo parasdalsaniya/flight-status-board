@@ -1,4 +1,4 @@
-# Real-Time Flight Status Board
+# [Real-Time Flight Status Board](https://flight-status-board-cyan.vercel.app/)
 
 ## Overview
 This project is a React-based application built using TypeScript that mimics a real-time flight status board. The application retrieves flight details from a provided API, updates the data at regular intervals, and allows users to view detailed information about a specific flight.
