@@ -1,0 +1,256 @@
+/* Main container styles */
+.flight-details-page {
+    padding: 0;
+    margin: 0;
+}
+
+/* Header section styles */
+.page-header {
+    background: var(--color-background);
+    padding: 2rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* Header content container */
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+
+}
+
+/* Flight identification styles */
+.flight-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--color-text-primary);
+}
+
+/* Flight status indicator badge */
+.status-badge {
+    padding: 0.75rem 1.5rem;
+    border-radius: 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Airline information section */
+.airline-section {
+    background: var(--color-background);
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.airline-name {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+/* Flight route visualization section */
+.flight-route-section {
+    padding: 3rem 1rem;
+    background: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* Route display container */
+.route-display {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+/* Origin/Destination point styles */
+.route-point {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Airport code display */
+.city-code {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    letter-spacing: 2px;
+}
+
+/* City name display */
+.city-label {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+/* Flight path visualization */
+.route-connection {
+    flex: 1;
+    position: relative;
+    margin: 0 3rem;
+    max-width: 400px;
+}
+
+.connection-line {
+    height: 3px;
+    background: var(--color-border);
+    width: 100%;
+    position: relative;
+}
+
+/* Aircraft position indicator */
+.airplane-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+}
+
+/* Departure time section styles */
+.departure-time-section {
+    padding: 3rem 1rem;
+    background: var(--color-background);
+    text-align: center;
+}
+
+/* Section header styles */
+.section-title {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+}
+
+/* Time information container */
+.time-display {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Time value styles */
+.time {
+    display: block;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+/* Date value styles */
+.date {
+    display: block;
+    font-size: 1.4rem;
+    color: var(--color-text-secondary);
+}
+
+/* Accessibility enhancements */
+:focus {
+    outline: 2px solid var(--color-primary-blue);
+    outline-offset: 2px;
+}
+
+/* Responsive design breakpoints */
+@media (max-width: 768px) {
+    .page-header {
+        padding: 1.5rem 1rem;
+    }
+
+    .header-content {
+        padding: 0;
+    }
+
+    .flight-number {
+        font-size: 2rem;
+    }
+
+    .status-badge {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .route-display {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 0;
+    }
+
+    .route-connection {
+        width: 3px;
+        height: 80px;
+        margin: 1rem 0;
+    }
+
+    .connection-line {
+        width: 3px;
+        height: 100%;
+    }
+
+    .airplane-icon {
+        transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .city-code {
+        font-size: 2.5rem;
+    }
+
+    .time {
+        font-size: 3rem;
+    }
+
+    .date {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .flight-number {
+        font-size: 1.75rem;
+    }
+
+    .status-badge {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .city-code {
+        font-size: 2rem;
+    }
+
+    .time {
+        font-size: 2.5rem;
+    }
+}
+
+/* High contrast mode adjustments */
+@media (forced-colors: active) {
+    .connection-line {
+        background: CanvasText;
+    }
+
+    .status-badge {
+        border: 1px solid CanvasText;
+    }
+}

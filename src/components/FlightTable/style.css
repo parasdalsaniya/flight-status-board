@@ -1,0 +1,5 @@
+/* Container for the flight table with vertical scrolling */
+.flight-table-container {
+    height: 100%;
+    overflow: auto;
+}

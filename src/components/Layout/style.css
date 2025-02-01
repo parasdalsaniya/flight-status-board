@@ -1,0 +1,20 @@
+/**
+ * Container Class
+ * 
+ * A responsive container component that provides centered layout with maximum width,
+ * consistent padding, and viewport-relative height. Includes mobile-friendly 
+ * adjustments for smaller screens.
+ */
+
+.container {
+    max-width: 1560px;
+    margin: 0 auto;
+    padding: 1rem 3rem;
+    height: 80vh;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+}

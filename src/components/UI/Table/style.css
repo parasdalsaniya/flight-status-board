@@ -1,0 +1,99 @@
+/* Main container for the table with scrolling functionality
+ * Provides a scrollable viewport while maintaining table accessibility
+ */
+.table-container {
+    height: 100%;
+    background-color: var(--color-background);
+    border-radius: 4px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Base table styles
+ * Sets minimum width to prevent content squishing and ensures proper layout
+ */
+.table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+/* Table header styles
+ * Makes header stick to top while scrolling and maintains visibility
+ */
+.table thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: var(--color-background);
+}
+
+/* Common cell styles for both header and data cells
+ * Ensures consistent padding and text handling with ellipsis for overflow
+ */
+.table th,
+.table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Header cell specific styles
+ * Distinguishes header cells with different background and text properties
+ */
+.table th {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    font-weight: bold;
+}
+
+/* Zebra striping for table rows
+ * Improves readability by alternating row backgrounds
+ */
+.table tr:nth-child(even) {
+    background-color: var(--color-background-muted);
+}
+
+/* Row hover effect
+ * Provides visual feedback when user hovers over table rows
+ */
+.table tr:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+/* Custom scrollbar styling for webkit browsers
+ * Defines the scrollbar width and height
+ */
+.table-container::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+}
+
+/* Scrollbar track styling
+ * Customizes the appearance of the scrollbar track/background
+ */
+.table-container::-webkit-scrollbar-track {
+    background: var(--color-background-muted);
+    border-radius: 2px;
+}
+
+/* Scrollbar thumb/handle styling
+ * Defines the appearance of the draggable scrollbar handle
+ */
+.table-container::-webkit-scrollbar-thumb {
+    background: var(--color-scrollbar);
+    border-radius: 2px;
+}
+
+/* Scrollbar thumb hover state
+ * Provides visual feedback when hovering over the scrollbar handle
+ */
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: var(--color-scrollbar-hover);
+    border-radius: 2px;
+}
