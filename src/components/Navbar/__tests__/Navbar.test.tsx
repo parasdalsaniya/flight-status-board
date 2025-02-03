@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, act } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { Navbar } from '../index';
 
@@ -52,7 +52,6 @@ describe('Navbar', () => {
 
     /**
      * Test case to verify the time updates every second
-     * Note: This test appears to have a logic error in the expectation
      */
     it('should update time every second', async () => {
         render(
@@ -67,12 +66,15 @@ describe('Navbar', () => {
         // Capture initial time display
         const initialTime = screen.getByText((content) => dateTimeRegex.test(content)).textContent;
 
-        // Advance timer by 1 second
-        vi.advanceTimersByTime(1000);
+        // Advance timer by 1 second and wrap in act
+        await act(async () => {
+            await vi.advanceTimersByTimeAsync(1000);
+        });
 
         // Capture updated time display
         const updatedTime = screen.getByText((content) => dateTimeRegex.test(content)).textContent;
 
-        expect(updatedTime).toBe(initialTime);
+        // The updated time should be different from the initial time
+        expect(updatedTime).not.toBe(initialTime);
     });
 }); 

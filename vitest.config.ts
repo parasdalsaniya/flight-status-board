@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
@@ -16,7 +16,8 @@ export default defineConfig({
         '*.type.ts',
         'src/**/*.type.ts',
         'vitest.setup.ts',
-        'src/vite-env.d.ts'
+        'src/vite-env.d.ts',
+        'dist/**'
       ],
     },
   },

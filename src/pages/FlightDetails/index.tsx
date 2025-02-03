@@ -17,14 +17,14 @@ import Loader from '../../components/UI/Loader';
  */
 const FlightDetailsPage: React.FC = () => {
     // Extract flight ID from URL parameters
-    const { id } = useParams<{ id: string }>();
+    const { id } = useParams<{ id: string | undefined }>();
     
     // Fetch flight details using custom hook
     const { 
         flight: flightDetails, 
         loading: flightLoading, 
         error: flightError 
-    } = useFlightDetail(id || "");
+    } = useFlightDetail(id);
 
     // Show loading state while fetching data
     if (flightLoading) {

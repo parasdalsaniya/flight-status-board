@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 
 // Import type
-import { Flight } from '../types/flight.type';
+import { Flight, UseFlightDetailReturn, UseFlightsReturn } from '../types/flight.type';
 
 // Base API URL for flight-related endpoints
 const API_BASE = import.meta.env.VITE_API_BASE_URL;
@@ -11,7 +11,7 @@ const API_BASE = import.meta.env.VITE_API_BASE_URL;
  * Custom hook to fetch and manage a list of flights
  * @returns {Object} Object containing flights data, loading state, error state, and refetch function
  */
-export const useFlights = () => {
+export const useFlights = (): UseFlightsReturn => {
     const [flights, setFlights] = useState<Flight[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -27,7 +27,7 @@ export const useFlights = () => {
             setFlights(data);
             setError(null);
         } catch (err) {
-            setError(err instanceof Error ? err.message : 'An error occurred');
+            setError((err as Error)?.message);
         } finally {
             setLoading(false);
         }
@@ -37,7 +37,7 @@ export const useFlights = () => {
         fetchFlights();
         // Set up polling interval for real-time updates
         const interval = setInterval(fetchFlights, 30000); // Refresh every 30 seconds
-        
+
         // Cleanup interval on component unmount
         return () => clearInterval(interval);
     }, []);
@@ -50,7 +50,9 @@ export const useFlights = () => {
  * @param {string} id - The unique identifier of the flight
  * @returns {Object} Object containing flight data, loading state, and error state
  */
-export const useFlightDetail = (id: string) => {
+export const useFlightDetail = (
+    id: string | undefined
+): UseFlightDetailReturn => {
     const [flight, setFlight] = useState<Flight | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -67,7 +69,7 @@ export const useFlightDetail = (id: string) => {
                 setFlight(data);
                 setError(null);
             } catch (err) {
-                setError(err instanceof Error ? err.message : 'An error occurred');
+                setError((err as Error)?.message);
             } finally {
                 setLoading(false);
             }

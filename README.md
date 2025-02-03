@@ -78,6 +78,13 @@ Or using yarn:
 yarn test:coverage
 ```
 
+To view code coverage:
+Open `coverage/index.html` in your browser
+
+**Current coverage: 100% across all files**
+
+![TDD Step - Green](./docs/images/code-coverage-report.png)
+
 ## Project Structure
 ```md
 .
